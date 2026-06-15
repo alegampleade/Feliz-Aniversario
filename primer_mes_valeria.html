@@ -163,18 +163,44 @@ Te amo muchísimo, mi chocolatito. ❤️</p>
 </section>
 
 <script>
-const start = new Date('2026-06-16T00:00:00');
-function updateCounter(){
- const now = new Date();
- const diff = Math.max(0, now - start);
- const days = Math.floor(diff/86400000);
- const hours = Math.floor((diff%86400000)/3600000);
- document.getElementById('counter').innerHTML =
- '❤️ Juntos desde el 16/06/2026 ❤️<br><br>' + days + ' días y ' + hours + ' horas de esta historia 💕';
-}
-updateCounter();
-setInterval(updateCounter,60000);
+const start = new Date('2026-05-16T00:00:00');
 
+function updateCounter() {
+
+    const now = new Date();
+    const diff = now - start;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (diff % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (diff % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("counter").innerHTML = `
+        ❤️ Juntos desde el 16/05/2026 ❤️
+        <br><br>
+        <strong>${days}</strong> días
+        <strong>${hours}</strong> horas
+        <strong>${minutes}</strong> minutos
+        <strong>${seconds}</strong> segundos
+        <br><br>
+        y cada segundo te amo un poquito más 💕
+    `;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
 const hearts=document.getElementById('hearts');
 for(let i=0;i<30;i++){
  const h=document.createElement('div');
