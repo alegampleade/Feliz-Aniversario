@@ -29,7 +29,8 @@ display:flex;flex-direction:column;justify-content:center;align-items:center;
 text-align:center;position:relative;z-index:1;
 }
 .card{
-max-width:850px;background:rgba(255,255,255,.75);
+max-width:850px;
+background:rgba(255,255,255,.85);
 backdrop-filter:blur(8px);
 padding:30px;border-radius:25px;
 box-shadow:0 10px 25px rgba(0,0,0,.1);
@@ -41,9 +42,38 @@ padding:14px 28px;border:none;border-radius:999px;
 background:#ff5c9a;color:white;font-size:1rem;cursor:pointer;
 }
 .photo{
-width:300px;height:300px;border:3px dashed #ff5c9a;border-radius:20px;
-display:flex;align-items:center;justify-content:center;margin:20px auto;
-background:white;
+    width:450px;
+    height:450px;
+    border:4px solid #ff5c9a;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:20px auto;
+    background:white;
+    overflow:hidden;
+    box-shadow:0 0 25px rgba(255,92,154,.4);
+
+    animation: aparecer 1.5s ease;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:16px;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;width:100%;max-width:1000px}
 .game,.word{
@@ -75,7 +105,9 @@ audio{width:100%;max-width:500px}
 <section id="inicio">
 <div class="card">
 <h1>❤️ Feliz Primer Mes, Mi Niña ❤️</h1>
-<div class="photo">📸 Tu foto favorita aquí</div>
+<div class="photo">
+    <img src="principal.jpg" alt="Nosotros">
+</div>
 <p>Un pequeño rincón de internet hecho especialmente para vos.</p>
 <div class="counter" id="counter"></div>
 </div>
