@@ -413,11 +413,7 @@ line-height:1.6;
 </head>
 <body>
 
-<audio id="bgMusic" loop>
-
-<source src="musica.mp3" type="audio/mpeg">
-
-</audio>
+<audio id="bgMusic"></audio>
 
 <div class="hearts" id="hearts"></div>
 
@@ -447,8 +443,13 @@ recordarte lo importante que sos para mí.
 
 <br><br>
 
-<button class="btn" onclick="toggleMusic()">
-🎵 Activar música
+<button
+id="musicBtn"
+class="btn"
+onclick="toggleMusic()">
+
+🎵 Dale Play Mamí
+
 </button>
 
 <div id="mensajeInicial" style="display:none; margin-top:25px;">
@@ -881,19 +882,48 @@ function mostrarMensaje(){
 
 function toggleMusic(){
 
-    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
 
     if(music.paused){
 
         music.play();
 
+        btn.innerHTML = "⏸️ Ponle Pausa Mamí";
+
     }else{
 
         music.pause();
 
+        btn.innerHTML = "🎵 Dale Play Mamí";
+
     }
 
 }
+const playlist = [
+    "distancia.mp3",
+    "preso.mp3"
+];
+
+let currentSong = 0;
+
+const music = document.getElementById("bgMusic");
+
+music.src = playlist[currentSong];
+
+music.addEventListener("ended", () => {
+
+    currentSong++;
+
+    if(currentSong >= playlist.length){
+        currentSong = 0;
+    }
+
+    music.src = playlist[currentSong];
+
+    music.play();
+
+});
+
 const start = new Date('2026-05-16T05:30:00');
 
 function updateCounter() {
