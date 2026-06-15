@@ -4,21 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para mi niña ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(180deg,#ffd6e7,#fff0f5);
+
+font-family:'Poppins',sans-serif;
+
+background:
+radial-gradient(circle at top left,#ffd6e7 0%,transparent 25%),
+radial-gradient(circle at top right,#ffc2da 0%,transparent 25%),
+radial-gradient(circle at bottom left,#ffd8e8 0%,transparent 20%),
+linear-gradient(180deg,#fff5f8,#ffe9f1);
+
 color:#5a2a3a;
+
 overflow-x:hidden;
+
 scroll-behavior:smooth;
+
 }
 .hearts{
 position:fixed;inset:0;pointer-events:none;z-index:0;
 }
 .heart{
-position:absolute;font-size:20px;animation:float 10s linear infinite;
-opacity:.6;
+position:absolute;
+font-size:24px;
+animation:float 12s linear infinite;
+opacity:.7;
+filter:drop-shadow(0 0 8px rgba(255,92,154,.5));
 }
 @keyframes float{
 from{transform:translateY(100vh)}to{transform:translateY(-120px)}
@@ -29,17 +46,70 @@ display:flex;flex-direction:column;justify-content:center;align-items:center;
 text-align:center;position:relative;z-index:1;
 }
 .card{
+
 max-width:850px;
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(8px);
-padding:30px;border-radius:25px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+background:rgba(255,255,255,.55);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.7);
+
+padding:35px;
+
+border-radius:35px;
+
+box-shadow:
+0 15px 35px rgba(255,92,154,.15),
+0 0 25px rgba(255,255,255,.5);
+
 }
-h1{font-size:3rem;margin-bottom:20px}
-h2{font-size:2rem;margin-bottom:20px}
+h1{
+font-family:'Great Vibes',cursive;
+font-size:5rem;
+margin-bottom:20px;
+font-weight:normal;
+}
+
+h2{
+font-family:'Great Vibes',cursive;
+font-size:3.2rem;
+margin-bottom:20px;
+font-weight:normal;
+}
 .btn{
-padding:14px 28px;border:none;border-radius:999px;
-background:#ff5c9a;color:white;font-size:1rem;cursor:pointer;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:999px;
+
+background:linear-gradient(
+135deg,
+#ff5c9a,
+#ff86b6
+);
+
+color:white;
+
+font-size:1rem;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 5px 20px rgba(255,92,154,.35);
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
 }
 .photo{
     width:450px;
@@ -76,24 +146,99 @@ background:#ff5c9a;color:white;font-size:1rem;cursor:pointer;
     }
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;width:100%;max-width:1000px}
+
 .game,.word{
-background:white;padding:20px;border-radius:20px;
+
+background:rgba(255,255,255,.65);
+
+backdrop-filter:blur(10px);
+
+padding:25px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,.6);
+
+transition:.4s;
 }
+.game:hover,
+.word:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 10px 30px rgba(255,92,154,.2);
+
+}
+
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;width:100%;max-width:1000px}
 .gallery div{
-height:220px;border:2px dashed #ff5c9a;border-radius:20px;background:white;
-display:flex;align-items:center;justify-content:center;
+height:250px;
+
+background:rgba(255,255,255,.7);
+
+border-radius:25px;
+
+box-shadow:0 10px 25px rgba(255,92,154,.15);
+
+overflow:hidden;
 }
 audio{width:100%;max-width:500px}
 #secret{display:none;margin-top:20px}
 .counter{font-size:1.3rem;margin-top:20px;font-weight:bold}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/* ANIMACIONES */
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+@keyframes float{
+
+from{
+    transform:translateY(100vh);
+}
+
+to{
+    transform:translateY(-120px);
+}
+
+}
 </style>
 </head>
 <body>
 
 <div class="hearts" id="hearts"></div>
 
-<section>
+<section class="hidden">
 <div class="card">
 
 <h1>❤️ Hola, mor ❤️</h1>
@@ -135,7 +280,7 @@ Te amo muchísimo ❤️
 </div>
 </section>
 
-<section id="inicio">
+<section id="inicio" class="hidden">
 <div class="card">
 <h1>❤️ Nuestro primer capítulo ❤️</h1>
 <div class="photo">
@@ -146,7 +291,7 @@ Te amo muchísimo ❤️
 </div>
 </section>
 
-<section>
+<section class="hidden">
 <div class="card">
 
 <h2 style="font-size:2.3rem;">
@@ -186,7 +331,7 @@ Porque si algo aprendí este último mes, es que mi lugar favorito siempre termi
 </div>
 </section>
 
-<section>
+<section class="hidden">
 
 <h2>🎮 Nuestro mundo 🎮</h2>
 
@@ -243,7 +388,7 @@ si estoy jugando con vos.
 
 </section>
 
-<section>
+<section class="hidden">
 
 <h2>💬 Nuestras pequeñas cosas 💬</h2>
 
@@ -293,7 +438,7 @@ pero cada vez me sigue sacando una sonrisa.
 
 </section>
 
-<section>
+<section class="hidden">
 <h2>📸 Nuestros recuerdos</h2>
 <div class="gallery">
 <div>Foto 1</div>
@@ -303,7 +448,7 @@ pero cada vez me sigue sacando una sonrisa.
 </div>
 </section>
 
-<section>
+<section class="hidden">
 
 <div class="card">
 
@@ -335,7 +480,7 @@ pero cada vez me sigue sacando una sonrisa.
 
 </section>
 
-<section>
+<section class="hidden">
 <div class="card">
 <h2>🎧 Escuchame un ratito ❤️</h2>
 <p>Hay cosas que quería decirte con mi propia voz.</p><br>
@@ -346,7 +491,7 @@ pero cada vez me sigue sacando una sonrisa.
 </div>
 </section>
 
-<section>
+<section class="hidden">
 <div class="card">
 <h2>🌙 Lo que quiero construir con vos</h2>
 <p>Más llamadas hasta tarde.<br><br>
@@ -359,7 +504,7 @@ Más momentos especiales.<br><br>
 </div>
 </section>
 
-<section>
+<section class="hidden">
 <div class="card">
 <h1>💖 Y esto recién empieza... 💖</h1>
 <p>Mi niña...<br><br>
@@ -457,6 +602,27 @@ for(let i=0;i<30;i++){
  h.style.animationDelay=(Math.random()*10)+'s';
  hearts.appendChild(h);
 }
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".hidden").forEach((el)=>{
+
+    observer.observe(el);
+
+});
 </script>
 </body>
 </html>
